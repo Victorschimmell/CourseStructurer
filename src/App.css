@@ -1,0 +1,238 @@
+/* src/App.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: #4CAF50;
+  /* Green theme for the title */
+  background-color: #fff;
+  /* Title background contrast */
+  padding: 10px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Left-hand side: Programme structure */
+.plan-structure {
+  width: 520px;
+}
+
+.year-container {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.year-container h2 {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #4CAF50;
+  /* Green theme for year headings */
+}
+
+/* Blocks (drop zones) in programme structure */
+.block {
+  padding: 10px;
+  border: 2px dashed #4CAF50;
+  /* Green border for drop zones */
+  border-radius: 5px;
+  min-height: 100px;
+  background-color: #f0f9f0;
+  /* Light green for drop zones */
+  position: relative;
+}
+
+.block h3 {
+  margin: 0 0 5px 0;
+  color: #555;
+}
+
+.block.thesis {
+  grid-column: 1 / -1;
+  border: 2px solid #4CAF50;
+  /* Green theme for thesis block */
+  background-color: #e8f5e9;
+  /* Light green for thesis block */
+  text-align: center;
+}
+
+.block.thesis h3 {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+/* When a course is placed in a block, show only essential attributes */
+.block .draggable-item {
+  background-color: #fff;
+  border: 1px solid #b1b1b1;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 5px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+  font-size: 0.9em;
+  cursor: default;
+}
+
+/* Right-hand side: Courses pane */
+.courses-pane {
+  flex: 1;
+  max-width: 600px;
+}
+
+/* Controls on the right-hand side */
+.courses-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.courses-controls input {
+  padding: 8px;
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Courses list displayed as a grid: three per row */
+.courses {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* Draggable course styling (used in both panes) */
+.draggable-item {
+  font-size: 0.85em;
+  padding: 6px;
+  background-color: #f3fef3;
+  /* Light green for draggable items */
+  border: 1px solid #4CAF50;
+  /* Green border for draggable items */
+  border-radius: 4px;
+  cursor: grab;
+  transition: background-color 0.3s ease;
+  width: 180px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.draggable-item:active {
+  cursor: grabbing;
+}
+
+/* Pagination styling */
+.pagination ul {
+  list-style: none;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  padding: 0;
+}
+
+.pagination li button {
+  background: #fff;
+  border: 1px solid #4CAF50;
+  /* Green theme for pagination buttons */
+  padding: 5px 10px;
+  cursor: pointer;
+  color: #4CAF50;
+}
+
+.pagination li.active button {
+  background: #4CAF50;
+  /* Green for active pagination */
+  color: #fff;
+  border-color: #4CAF50;
+}
+
+/* Error message styling */
+.error {
+  color: #900;
+  /* Keep error messages red for contrast */
+}
+
+/* General Layout */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Header */
+.header {
+  background-color: #4CAF50;
+  /* Green theme for header */
+  color: #fff;
+  padding: 20px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content nav {
+  display: flex;
+  gap: 15px;
+}
+
+.header-content nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.header-content nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+.main-content {
+  padding: 20px;
+}
+
+/* Footer */
+.footer {
+  background-color: #4CAF50;
+  /* Green footer */
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer a:hover {
+  text-decoration: none;
+}
+
+.footer p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
