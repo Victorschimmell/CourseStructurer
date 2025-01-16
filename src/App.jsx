@@ -6,15 +6,29 @@ import Filters from './components/Filters';
 import Pagination from './components/Pagination';
 import './App.css';
 
+// Mapping of department codes to department names
+const departmentNames = {
+  NBI: "Department of Biology",
+  NDA: "Department of Computer Science",
+  NIF: "Department of Food and Resource Economics",
+  NFO: "Department of Food Science",
+  NIG: "Department of Geoscience and Natural Resource Management",
+  NMA: "Department of Mathematical Sciences",
+  NKE: "Department of Chemistry",
+  NFY: "The Niels Bohr Institute",
+  NNE: "Department of Nutrition, Exercise and Sports",
+};
+
 function App() {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const [searchTerm, setSearchTerm] = useState('');
-  const [activeFilter, setActiveFilter] = useState('');
+  const [activeFilter, setActiveFilter] = useState(''); // For degree filter
+  const [activeDepartments, setActiveDepartments] = useState([]); // For multiple departments
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 20;
+  const itemsPerPage = 12;
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -41,9 +55,11 @@ function App() {
 
   const filteredCourses = courses.filter(course => {
     const title = course.title || '';
+    const departmentCode = course.id?.substring(0, 3); // Extract department code
     return (
       title.toLowerCase().includes(searchTerm.toLowerCase()) &&
       (!activeFilter || course.degree[0]?.type === activeFilter) &&
+      (activeDepartments.length === 0 || activeDepartments.includes(departmentCode)) &&
       course.location === null
     );
   });
@@ -73,7 +89,6 @@ function App() {
 
     const isSpanning = course.ects >= 15;
 
-    // Restrict placement in Year 2, Block 2 for courses with 15 ECTS or higher
     if (isSpanning && targetBlockId === 'year2-block2') {
       alert("15 ECTS or higher courses cannot be placed in Year 2, Block 2.");
       return;
@@ -147,7 +162,14 @@ function App() {
                 value={searchTerm}
                 onChange={e => setSearchTerm(e.target.value)}
               />
-              <Filters activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
+              <Filters
+                activeFilter={activeFilter}
+                setActiveFilter={setActiveFilter}
+                activeDepartments={activeDepartments}
+                setActiveDepartments={setActiveDepartments}
+                setCurrentPage={setCurrentPage}
+                departmentNames={departmentNames}
+              />
             </div>
             <Courses courses={currentCourses} />
             <Pagination

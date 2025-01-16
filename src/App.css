@@ -236,3 +236,101 @@ body {
   margin: 5px 0;
   font-size: 0.9rem;
 }
+
+.filters fieldset {
+  border: none;
+  padding: 0;
+}
+
+.filters label {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.filters input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.filters fieldset legend {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.filters select[multiple] {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #333;
+}
+
+.filters select[multiple]:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Dropdown container */
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 20px;
+  /* Moves the button to the right */
+}
+
+/* Dropdown button */
+.dropdown-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dropdown-button:hover {
+  background-color: #45a049;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  z-index: 1;
+  width: 250px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Dropdown item */
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+/* Align the checkbox and text */
+.dropdown-item label {
+  font-size: 1rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 5px;
+  /* Ensures alignment with all text */
+}
+
+/* Checkbox styling */
+.dropdown-item input {
+  margin: 0;
+  transform: scale(1.2);
+  /* Keeps the checkbox size uniform */
+}
